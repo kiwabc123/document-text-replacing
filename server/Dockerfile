@@ -1,10 +1,14 @@
 FROM python:3.11-slim
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Update pip and install build dependencies
 RUN pip install --upgrade pip setuptools wheel
 
 # Install LibreOffice and dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    -o Dpkg::Pre-Install-Pkgs::="/bin/true" \
+    -o Dpkg::Configure::PreInstall::Off=1 \
     build-essential \
     libreoffice \
     libreoffice-writer \

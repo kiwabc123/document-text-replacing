@@ -11,17 +11,10 @@
     "dependencies": {
         "@react-pdf/renderer": "^4.5.1",
         "axios": "^1.16.1",
-        "docshift": "^0.0.73",
-        "docx-html": "^1.0.5",
-        "mammoth": "^1.12.0",
         "next": "16.2.6",
         "papaparse": "^5.5.3",
-        "pdf-lib": "^1.17.1",
-        "pdf-parse": "^2.4.5",
-        "puppeteer": "^24.43.1",
         "react": "19.2.4",
         "react-dom": "19.2.4",
-        "react-pdf": "^10.4.1",
         "zod": "^4.4.3"
     },
     "devDependencies": {

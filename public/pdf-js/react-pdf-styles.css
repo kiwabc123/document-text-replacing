@@ -1,0 +1,109 @@
+/* PDF Text Layer and Annotation Layer Styles for react-pdf */
+
+/* TextLayer Styles */
+.react-pdf__Page__textContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.react-pdf__Page__textContent span {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+}
+
+.react-pdf__Page__textContent .textLayer--selection span {
+  background-color: blue;
+  color: transparent;
+}
+
+/* Annotation Layer Styles */
+.react-pdf__Page__annotationLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.react-pdf__Page__annotationLayer .linkAnnotation > a {
+  position: absolute;
+  font-size: 1em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background: yellow;
+}
+
+.react-pdf__Page__annotationLayer .linkAnnotation > a:hover {
+  opacity: 0.4;
+  background: yellow;
+}
+
+.react-pdf__Page__annotationLayer .popupAnnotation {
+  position: absolute;
+  font-size: 12px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  background-color: hsla(0, 0%, 100%, 0.9);
+  border: 1px solid hsla(0, 0%, 0%, 0.3);
+}
+
+.react-pdf__Page__annotationLayer .popupAnnotation > .header {
+  margin: 5px;
+  color: rgb(200, 0, 0);
+}
+
+.react-pdf__Page__annotationLayer .popupAnnotation > .header h1 {
+  margin: 0;
+  font-size: 12px;
+}
+
+.react-pdf__Page__annotationLayer .popupAnnotation > .header .popupDate {
+  display: inline-block;
+}
+
+.react-pdf__Page__annotationLayer .popupAnnotation > .header button {
+  width: 22px;
+  height: 22px;
+  background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="13"><path d="M7.48 8.05l3.54 3.54.7-.7L8.18 7.35l3.54-3.53-.7-.7-3.54 3.53L3.95 2.35l-.7.7 3.54 3.53-3.54 3.54.7.7z" fill="%23fff"/></svg>') center / 50% no-repeat;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  float: right;
+  background-color: rgb(211, 211, 211);
+}
+
+.react-pdf__Page__annotationLayer .popupAnnotation > .body {
+  padding: 5px;
+  overflow: auto;
+}
+
+.react-pdf__Page__annotationLayer .popupAnnotation > .footer {
+  background-color: hsla(0, 0%, 75%, 0.3);
+  margin: 5px;
+  padding: 3px;
+  font-size: 11px;
+}
+
+.react-pdf__Page__annotationLayer .squareAnnotation,
+.react-pdf__Page__annotationLayer .circleAnnotation,
+.react-pdf__Page__annotationLayer .lineAnnotation svg,
+.react-pdf__Page__annotationLayer .polylineAnnotation svg,
+.react-pdf__Page__annotationLayer .polygonAnnotation svg,
+.react-pdf__Page__annotationLayer .highlightAnnotation,
+.react-pdf__Page__annotationLayer .underlineAnnotation,
+.react-pdf__Page__annotationLayer .squigglyAnnotation,
+.react-pdf__Page__annotationLayer .strikeoutAnnotation,
+.react-pdf__Page__annotationLayer .stampAnnotation,
+.react-pdf__Page__annotationLayer .freeTextAnnotation,
+.react-pdf__Page__annotationLayer .fileAttachmentAnnotation {
+  position: absolute;
+}

@@ -1,0 +1,177 @@
+{
+  "id": "sample-invoice-1779268529721",
+  "name": "Simple Invoice Template",
+  "description": "A clean, professional invoice template",
+  "version": "1.0",
+  "createdAt": "2026-05-20T09:15:29.721Z",
+  "variables": [
+    {
+      "name": "invoiceNumber",
+      "type": "text",
+      "label": "Invoice Number",
+      "required": true,
+      "placeholder": "INV-2024-001"
+    },
+    {
+      "name": "invoiceDate",
+      "type": "date",
+      "label": "Invoice Date",
+      "required": true
+    },
+    {
+      "name": "clientName",
+      "type": "text",
+      "label": "Client Name",
+      "required": true
+    },
+    {
+      "name": "clientEmail",
+      "type": "email",
+      "label": "Client Email",
+      "required": true
+    },
+    {
+      "name": "clientPhone",
+      "type": "phone",
+      "label": "Client Phone",
+      "required": true
+    },
+    {
+      "name": "servicePrice",
+      "type": "currency",
+      "label": "Service Price",
+      "required": true
+    },
+    {
+      "name": "totalAmount",
+      "type": "currency",
+      "label": "Total Amount",
+      "required": true
+    },
+    {
+      "name": "paymentTerms",
+      "type": "text",
+      "label": "Payment Terms",
+      "required": true
+    },
+    {
+      "name": "notes",
+      "type": "text",
+      "label": "Notes",
+      "required": false
+    }
+  ],
+  "tables": [
+    {
+      "id": "items",
+      "name": "Items",
+      "columns": [
+        {
+          "id": "description",
+          "name": "description",
+          "label": "Description",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "quantity",
+          "name": "quantity",
+          "label": "Qty",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "price",
+          "name": "price",
+          "label": "Price",
+          "type": "currency",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "type": "heading",
+      "content": "INVOICE",
+      "style": {
+        "fontSize": 32,
+        "fontWeight": "bold",
+        "marginBottom": 20,
+        "textAlign": "left"
+      }
+    },
+    {
+      "type": "field",
+      "label": "Invoice #",
+      "variable": "invoiceNumber",
+      "style": {
+        "marginBottom": 10
+      }
+    },
+    {
+      "type": "field",
+      "label": "Date",
+      "variable": "invoiceDate",
+      "style": {
+        "marginBottom": 20
+      }
+    },
+    {
+      "type": "subheading",
+      "content": "Bill To",
+      "style": {
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "marginTop": 20,
+        "marginBottom": 10
+      }
+    },
+    {
+      "type": "field-group",
+      "fields": [
+        "clientName",
+        "clientEmail",
+        "clientPhone"
+      ],
+      "style": {
+        "marginBottom": 20
+      }
+    },
+    {
+      "type": "table",
+      "tableId": "items",
+      "style": {
+        "marginTop": 20,
+        "marginBottom": 20
+      }
+    },
+    {
+      "type": "divider",
+      "style": {
+        "marginTop": 15,
+        "marginBottom": 15
+      }
+    },
+    {
+      "type": "field-group",
+      "fields": [
+        "totalAmount",
+        "paymentTerms"
+      ],
+      "style": {
+        "marginBottom": 20
+      }
+    },
+    {
+      "type": "field",
+      "label": "Notes",
+      "variable": "notes"
+    }
+  ],
+  "styling": {
+    "primaryColor": "#000000",
+    "fontFamily": "Helvetica",
+    "fontSize": 11
+  }
+}

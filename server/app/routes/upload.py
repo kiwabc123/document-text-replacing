@@ -132,16 +132,22 @@ def extract_docx_variables(docx_path):
 def upload_template():
     """Upload and parse template file (DOCX or PDF)"""
     try:
+        logger.info(f"Upload request received. Files: {list(request.files.keys())}, Content-Type: {request.content_type}")
+        
         # Check if file is present
         if 'file' not in request.files:
+            logger.error(f"No 'file' field in request. Available fields: {list(request.files.keys())}")
             return jsonify({'error': 'No file provided'}), 400
         
         file = request.files['file']
+        logger.info(f"File received: {file.filename}, size: {len(file.getbuffer())} bytes")
         
         if file.filename == '':
+            logger.error("File filename is empty")
             return jsonify({'error': 'No file selected'}), 400
         
         if not allowed_file(file.filename):
+            logger.error(f"Invalid file extension: {file.filename}")
             return jsonify({'error': 'Only .docx and .pdf files are supported'}), 400
         
         # Save file temporarily

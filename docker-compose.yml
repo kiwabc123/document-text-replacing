@@ -1,20 +1,6 @@
 version: '3.8'
 
 services:
-  # Next.js frontend (client-side only)
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-    ports:
-      - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:5000
-    depends_on:
-      - server
-    networks:
-      - invoice-network
-
   # Python server (API + LibreOffice)
   server:
     build:
@@ -28,6 +14,7 @@ services:
       - ./server/uploads:/app/uploads
     networks:
       - invoice-network
+    restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
       interval: 30s

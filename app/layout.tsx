@@ -27,10 +27,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <link rel="stylesheet" href="/pdf-js/pdf_viewer.css" />
-        <link rel="stylesheet" href="/pdf-js/react-pdf-styles.css" />
-      </head>
+      <head></head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

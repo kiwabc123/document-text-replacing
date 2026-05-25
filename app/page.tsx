@@ -1,6 +1,5 @@
 'use client';
 
-import '@/lib/suppressPdfWarnings';
 import { InvoiceWizard } from '@/components/InvoiceWizard';
 
 // Force dynamic rendering since this page uses browser APIs

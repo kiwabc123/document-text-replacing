@@ -30,17 +30,28 @@ export async function uploadTemplate(file: File): Promise<TemplateMetadata> {
   const formData = new FormData();
   formData.append('file', file);
 
+  console.log('Uploading file:', {
+    name: file.name,
+    type: file.type,
+    size: file.size,
+    url: `${API_BASE_URL}/api/templates/upload`,
+  });
+
   const response = await fetch(`${API_BASE_URL}/api/templates/upload`, {
     method: 'POST',
     body: formData,
   });
 
+  console.log('Upload response status:', response.status);
+
   if (!response.ok) {
     const error = await response.json();
-    throw new Error(error.error || 'Upload failed');
+    console.error('Upload error:', error);
+    throw new Error(error.error || `Upload failed with status ${response.status}`);
   }
 
   const result = await response.json();
+  console.log('Upload success:', result);
   return result.data;
 }
 

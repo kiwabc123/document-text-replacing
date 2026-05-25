@@ -27,6 +27,33 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 app.register_blueprint(upload.bp)
 app.register_blueprint(generate.bp)
 
+@app.route('/', methods=['GET'])
+def index():
+    """API root endpoint with documentation"""
+    return jsonify({
+        'service': 'Invoice Automation Server',
+        'version': '1.0.0',
+        'status': 'running',
+        'endpoints': {
+            'health': {
+                'path': '/health',
+                'method': 'GET',
+                'description': 'Health check endpoint'
+            },
+            'upload': {
+                'path': '/upload',
+                'method': 'POST',
+                'description': 'Upload DOCX/PDF template and extract variables'
+            },
+            'generate': {
+                'path': '/generate',
+                'method': 'POST',
+                'description': 'Generate PDF from template with variables filled'
+            }
+        },
+        'documentation': 'https://github.com/kiwabc123/document-text-replacing'
+    }), 200
+
 @app.route('/health', methods=['GET'])
 def health():
     """Health check endpoint"""
